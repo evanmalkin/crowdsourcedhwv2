@@ -12,7 +12,7 @@ router.get('/homework', function(req, res){
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/local';
+  var url = 'mongodb://localhost:3001/local';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
@@ -52,7 +52,7 @@ router.get('/newhomework', function (req, res) {
 router.post('/addhomework', function (req, res) {
   var MongoClient = mongodb.MongoClient;
 
-  var url = 'mongodb://localhost:27017/local';
+  var url = 'mongodb://localhost:3001/local';
 
   MongoClient.connect(url, function (err, db) {
     if(err){
