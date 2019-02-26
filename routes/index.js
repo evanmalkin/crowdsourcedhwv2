@@ -78,6 +78,36 @@ router.post('/addhomework', function (req, res) {
   })
 });
 
+router.get('/signedIn', function (req, res) {
+  res.render('signedIn', {title: 'signed in'});
+});
+
+router.post('./onSignIn', function (err, db) {
+  if(err){
+    console.log('unable to connect to server owo');
+  }
+  else{
+    console.log('connected to server uwu');
+  }
+
+  var collection = db.collection('homework');
+
+  var student1 = {student: req.body.student};
+
+  collection.insert([student1], function (err, result) {
+    if (err){
+      console.log('unable to connect to server');
+    }
+    else{
+      window.open('./signedIn.pug')
+    }
+
+  });
+
+
+
+});
+
 module.exports = router;
 
 
