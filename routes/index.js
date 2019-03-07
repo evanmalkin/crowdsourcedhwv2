@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Homework' });
 });
 
 router.get('/homework', function(req, res){
@@ -23,7 +23,7 @@ router.get('/homework', function(req, res){
       console.log('Connection established to', url);
 
       // Get the documents collection
-      var collection = db.collection('homework');
+      var collection = db.collection('users');
 
       // Find all students
       collection.find({}).toArray(function (err, result) {
@@ -45,11 +45,12 @@ router.get('/homework', function(req, res){
   });
 });
 
-router.get('/newhomework', function (req, res) {
-  res.render('newhomework', {title: 'add homework'});
-});
+//router.get(profile.get, function (req, res) {
+ // res.render('newhomework', {title: 'add homework'});
 
-router.post('/addhomework', function (req, res) {
+//});
+
+router.post('/adduser', function (req, res) {
   var MongoClient = mongodb.MongoClient;
 
   var url = 'mongodb://localhost:3001/local';
@@ -60,9 +61,9 @@ router.post('/addhomework', function (req, res) {
     }else{
       console.log('connected to server');
 
-      var collection = db.collection('homework');
+      var collection = db.collection('users');
 
-      var student1 = {student: req.body.student, street: req.body.street, city: req.body.city, state: req.body.state, sex: req.body.sex, gpa: req.body.gpa};
+      //var student1 = {student: googleUser.getBasicProfile()};
 
       collection.insert([student1], function (err, result) {
         if(err){
@@ -90,11 +91,11 @@ router.post('./onSignIn', function (err, db) {
     console.log('connected to server uwu');
   }
 
-  var collection = db.collection('homework');
+  var collection = db.collection('users');
 
-  var student1 = {student: req.body.student};
+  var student1 = {student: req.body.profile};
 
-  collection.insert([student1], function (err, result) {
+  collection.insert([student1], function (err, result){
     if (err){
       console.log('unable to connect to server');
     }

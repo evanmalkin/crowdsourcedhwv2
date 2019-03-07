@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1= "hey guys whats up"
-  p Welcome to slamsville
+  p computer science is cool
   html(lang='en')
     head
       meta(name='google-signin-scope', content='profile email')
-      meta(name='google-signin-client_id', content='281867484961-i3r9u2hdg8r1d7cn35j08r4i12t766pg.apps.googleusercontent.com')
+      meta(name='google-signin-client_id', content='281867484961-u06h765qp2nrf3q2nnn75mfbr5bc138f.apps.googleusercontent.com')
       script(src='https://apis.google.com/js/platform.js', async='', defer='')
     body
       .g-signin2(data-onsuccess='onSignIn', data-theme='dark')
@@ -24,6 +24,27 @@ block content
           var id_token = googleUser.getAuthResponse().id_token;
           console.log("ID Token: " + id_token);
         }
+
+  p hey kid, Wanna add some homework?
+  br
+  span class
+    span &nbsp;
+    input#input_name(type='text', placeholder='class', name = 'class')
+    br
+    br
+    span date
+    span &nbsp;
+    input#input_name(type='text', placeholder='date', name = 'date')
+    <iframe src="https://calendar.google.com/calendar/embed?src=student.wayland.k12.ma.us_7h6l9fa71s1v8i1go6r7q7581s%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    br
+    span assignment
+    span &nbsp;
+    input#input_name(type='text', placeholder='assignment', name = 'assignement')
+    br
+    br
+    button#submit_student(type='submit') submit
+
+
 
 
 
